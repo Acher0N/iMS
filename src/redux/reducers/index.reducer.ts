@@ -1,13 +1,20 @@
+// reducers/index.reducer.ts
 import { combineReducers } from "redux";
-import dummyReducer from "./dummy.reducer";
-import themeReducer from "./UI/Theme.Reducer";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import themeReducer from "./UI/Theme.Reducer"; // Import the themeReducer
 
-// Combine reducers and explicitly define the RootState type
+// Redux Persist Configuration
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["theme"], // Only persist the theme reducer
+};
+
 const rootReducer = combineReducers({
-  dummy: dummyReducer,
   theme: themeReducer,
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export default rootReducer;
+export default persistedReducer;
