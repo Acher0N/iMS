@@ -1,4 +1,5 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import LOGO from "./assets/Logo";
 
 const App: React.FC = () => {
   const commonStyle = {
@@ -102,6 +103,7 @@ const App: React.FC = () => {
           warn
         </Button>
       </Box>
+      <img src={LOGO} width={"60px"} />
     </Box>
   );
 };
