@@ -26,8 +26,9 @@ const darkPalette = {
     main: "#f48fb1",
   },
   background: {
-    default: "#121212",
-    paper: "#1d1d1d",
+    neutral: "#28323D",
+    default: "#141A21",
+    paper: "#1C252E",
   },
 };
 

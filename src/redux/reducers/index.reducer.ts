@@ -2,7 +2,8 @@
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import themeReducer from "./UI/Theme.Reducer"; // Import the themeReducer
+import themeReducer from "./UI/Theme.Reducer";
+import idbmsSlice from "./DB/idbms.reducer"; // Import the themeReducer
 
 // Redux Persist Configuration
 const persistConfig = {
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   theme: themeReducer,
+  idbms: idbmsSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
