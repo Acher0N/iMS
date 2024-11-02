@@ -1,38 +1,93 @@
-// db.ts
 import Dexie, { Table } from "dexie";
-import { v4 as uuidv4 } from "uuid"; // Import the UUID library
+import { v4 as uuidv4 } from "uuid";
 
-// Define the Item interface
-export interface Item {
-  id?: number; // Optional because it will be auto-incremented
-  name: string;
-  description: string;
-}
-export interface Item1 {
-  id?: number; // Optional because it will be auto-incremented
-  name: string;
-  description: string;
+// Define interfaces for each table
+interface User {
+  id: string;
+  username: string;
+  password: string;
+  gmail?: string;
 }
 
-// Create the database class extending Dexie
-class IMSDatabase extends Dexie {
-  items!: Table<Item>; // Define a table for items
-  items1!: Table<Item1>; // Define a table for items
+interface Product {
+  id: string;
+  name: {
+    en: string;
+    ar: string;
+  };
+  price: {
+    cost: number;
+    sell: number;
+  };
+  VAT: {
+    type: string;
+    percentage: number;
+  };
+  quantity: {
+    isCount: string;
+    count: number;
+  };
+  category: string;
+  description: string;
+  lastModifiedDate: string;
+  lastModified: number;
+  uid: string;
+}
+
+interface Sale {
+  id: string;
+  productId: string;
+  quantitySold: number;
+  saleDate: string;
+  total: number;
+}
+
+class iDBMS extends Dexie {
+  users!: Table<User, string>;
+  products!: Table<Product, string>;
+  sales!: Table<Sale, string>;
 
   constructor() {
-    super("iDB");
+    super("iDBMS");
     this.version(1).stores({
-      items: "id,name,description", // Use 'id' as primary key
+      users: "id, username, password, gmail",
+      products: "id, name.en, price, VAT, category, lastModified",
+      sales: "id, productId, quantitySold, saleDate, total",
     });
+
+    this.users.mapToClass(UserModel);
+    this.products.mapToClass(ProductModel);
+    this.sales.mapToClass(SaleModel);
   }
 }
 
-// Export the database instance
-const db = new IMSDatabase();
+// Models with additional methods (optional)
+class UserModel implements User {
+  id = uuidv4();
+  username = "";
+  password = "";
+  gmail? = "";
+}
 
-// Override the add method to automatically generate a UUID for new items
-db.items.hook("creating", (primKey, obj) => {
-  obj.id = uuidv4(); // Generate a UUID
-});
+class ProductModel implements Product {
+  id = uuidv4();
+  name = { en: "", ar: "" };
+  price = { cost: 0, sell: 0 };
+  VAT = { type: "", percentage: 0 };
+  quantity = { isCount: "", count: 0 };
+  category = "";
+  description = "";
+  lastModifiedDate = new Date().toString();
+  lastModified = Date.now();
+  uid = uuidv4();
+}
 
-export default db;
+class SaleModel implements Sale {
+  id = uuidv4();
+  productId = "";
+  quantitySold = 0;
+  saleDate = new Date().toISOString();
+  total = 0;
+}
+
+export const db = new iDBMS();

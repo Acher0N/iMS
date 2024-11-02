@@ -1,30 +1,25 @@
-// api.ts
-import db, { Item } from "./iDB";
+import { db } from "./iDB";
+import { v4 as uuidv4 } from "uuid";
 
-// Create a new item
-export const createItem = async (item: Item): Promise<Item> => {
-  const id = await db.items.add(item);
-  return { id, ...item };
-};
-
-// Read all items
-export const readItems = async (): Promise<Item[]> => {
-  return await db.items.toArray();
-};
-
-// Read a single item by ID
-export const readItem = async (id: number): Promise<Item | undefined> => {
-  return await db.items.get(id);
-};
-
-// Update an item
-export const updateItem = async (id: number, updatedFields: Partial<Item>): Promise<Item | undefined> => {
-  await db.items.update(id, updatedFields);
-  return await readItem(id);
-};
-
-// Delete an item
-export const deleteItem = async (id: number): Promise<number> => {
-  await db.items.delete(id);
+// Generic CRUD functions
+export async function create<T>(table: Dexie.Table<T, string>, data: T): Promise<string> {
+  const id = await table.add({ ...data, id: uuidv4() } as any);
   return id;
-};
+}
+
+export async function read<T>(table: Dexie.Table<T, string>, id: string): Promise<T | undefined> {
+  return await table.get(id);
+}
+
+export async function readAll<T>(table: Dexie.Table<T, string>): Promise<T[]> {
+  return await table.toArray();
+}
+
+export async function update<T>(table: Dexie.Table<T, string>, id: string, updates: Partial<T>): Promise<number> {
+  return await table.update(id, updates);
+}
+
+export async function remove<T>(table: Dexie.Table<T, string>, id: string): Promise<void> {
+  // Optional: Add security checks before allowing deletion
+  await table.delete(id);
+}
