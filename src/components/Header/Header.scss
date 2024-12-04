@@ -1,0 +1,29 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  &__logo {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+  }
+
+  &__middle {
+    grid-column: 5 / span 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__end {
+    grid-column: 6 / span 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
