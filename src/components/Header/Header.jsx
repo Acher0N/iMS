@@ -1,15 +1,20 @@
 import "./Header.scss";
-import { Box } from "@mui/material";
 import { Logo } from "../Logo";
+import { Box, Button } from "@mui/material";
+import { toggleMode } from "../../redux/reducers/Theme.reducer";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <Box className="header">
       <Box className="header__logo">
         <Logo />
       </Box>
       <Box className="header__middle">Header</Box>
-      <Box className="header__end">Tools</Box>
+      <Box className="header__end">
+        <Button onClick={() => dispatch(toggleMode())}>Theme</Button>
+      </Box>
     </Box>
   );
 };
