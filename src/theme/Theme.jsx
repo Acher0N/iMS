@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleMode } from "../redux/reducers/Theme.Reducer";
+import { toggleMode } from "../redux/reducers/Theme.reducer";
 import { usePalette } from "./Palette";
 
 const custom_font_size = 0.75;
