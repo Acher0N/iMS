@@ -27,6 +27,19 @@ const darkPalette = {
     default: "#141A21",
     paper: "#1C252E",
   },
+  success: {
+    main: "#4CAF50",
+    contrastText: "#ffffff",
+  },
+  error: {
+    main: "#F44336",
+  },
+  warning: {
+    main: "#FFC107",
+  },
+  info: {
+    main: "#2196F3",
+  },
 };
 
 // Function to get palette based on mode

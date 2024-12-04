@@ -49,11 +49,11 @@ const Confirm = ({
       </DialogContent>
       <DialogActions>
         {showCancel && (
-          <Button onClick={onCancel} color="secondary" variant="outlined">
+          <Button onClick={onCancel} color="info" variant="outlined">
             {cancelText}
           </Button>
         )}
-        <Button onClick={onConfirm} color="primary" variant="contained">
+        <Button onClick={onConfirm} color="success" variant="contained">
           {confirmText}
         </Button>
       </DialogActions>
