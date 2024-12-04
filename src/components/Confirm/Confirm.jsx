@@ -47,7 +47,7 @@ const Confirm = ({
       >
         {children}
       </DialogContent>
-      <DialogActions>
+      <DialogActions sx={{ pb: "20px", display: "flex", justifyContent: "space-between", width: "350px", m: "0 auto" }}>
         {showCancel && (
           <Button onClick={onCancel} color="info" variant="outlined">
             {cancelText}
