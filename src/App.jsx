@@ -1,12 +1,14 @@
 import { Box, CssBaseline, Button } from "@mui/material";
 import { Titlebar, Logo, Confirm, Header } from "./components";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const App = () => {
   const [isConfirmOpen, setConfirmOpen] = useState(false);
 
   const handleDelete = () => {
     setConfirmOpen(false);
+    toast("Item deleted successfully!");
   };
 
   return (
@@ -26,8 +28,11 @@ const App = () => {
           onCancel={() => setConfirmOpen(false)}
           fullscreen={false} // Use fullscreen only when needed
         >
-          <h1 style={{ textAlign: "center", fontSize: "5rem" }}>Preview</h1>
+          <h1 style={{ textAlign: "center", fontSize: "10.25rem", margin: "0" }}>Preview</h1>
         </Confirm>
+        <Button variant="contained" color="success" onClick={() => toast.info("Item added successfully!")}>
+          Toast
+        </Button>
       </Box>
     </Box>
   );

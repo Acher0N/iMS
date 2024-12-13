@@ -26,13 +26,13 @@ const Confirm = ({
       fullWidth={!fullscreen} // Ensure width is restricted when not fullscreen
       sx={{
         "& .MuiDialog-paper": {
+          borderRadius: "5px",
+          backgroundImage: "none",
           margin: fullscreen ? "16px" : "auto", // Add margin on all sides for fullscreen
           padding: fullscreen ? "16px" : "0", // Add padding when fullscreen
-          width: fullscreen ? "auto" : "100%", // Adjust width for fullscreen mode
-          maxWidth: fullscreen ? "none" : "100%", // Remove maxWidth restriction in fullscreen
           height: fullscreen ? "auto" : "auto", // Allow for auto height in fullscreen mode
-          backgroundImage: "none",
-          borderRadius: "5px",
+          minWidth: fullscreen ? "auto" : "400px", // Adjust width for fullscreen mode
+          maxWidth: fullscreen ? "none" : "max-content", // Remove maxWidth restriction in fullscreen
         },
       }}
       aria-labelledby="confirm-dialog-title"
@@ -47,13 +47,13 @@ const Confirm = ({
       >
         {children}
       </DialogContent>
-      <DialogActions sx={{ pb: "20px", display: "flex", justifyContent: "space-between", width: "350px", m: "0 auto" }}>
+      <DialogActions sx={{ pb: "20px", display: "flex", justifyContent: "space-between", width: "220px", ml: "auto" }}>
         {showCancel && (
-          <Button onClick={onCancel} color="info" variant="outlined">
+          <Button onClick={onCancel} color="info" variant="outlined" size="large">
             {cancelText}
           </Button>
         )}
-        <Button onClick={onConfirm} color="success" variant="contained">
+        <Button onClick={onConfirm} color="success" variant="contained" size="large">
           {confirmText}
         </Button>
       </DialogActions>

@@ -3,6 +3,8 @@ import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { usePalette } from "./Palette";
 // import { toggleMode } from "../redux/reducers/Theme.reducer";
+import { ToastContainer } from "react-toastify";
+import { Bounce } from "react-toastify";
 
 const custom_font_size = 0.75;
 
@@ -48,6 +50,37 @@ const ThemeConfig = ({ children }) => {
       <CssBaseline />
       {children}
       {/* <button onClick={() => dispatch(toggleMode())}>Toggle Theme</button> */}
+      {/* <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar
+        limit={3}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={theme.palette.mode}
+        transition={Bounce}
+      /> */}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        limit={5}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        // stacked
+        // theme="colored"
+        theme={theme.palette.mode}
+        transition={Bounce}
+      />
     </ThemeProvider>
   );
 };
