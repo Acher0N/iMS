@@ -63,7 +63,7 @@ const ThemeConfig = ({ children }) => {
       <CssBaseline />
       <Rtl>{children}</Rtl>
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={1800}
         hideProgressBar={false}
         newestOnTop={true}
@@ -74,7 +74,7 @@ const ThemeConfig = ({ children }) => {
         draggable
         pauseOnHover
         theme={theme.palette.mode}
-        transition={Slide}
+        transition={Zoom}
       />
     </ThemeProvider>
   );
