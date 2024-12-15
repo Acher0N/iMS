@@ -16,7 +16,7 @@ const login_schema = Yup.object().shape({
 const LoginForm = () => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
-  const isEng = theme.direction === "rtl";
+  const isEng = theme.direction === "ltr";
   const initial_values = {
     user_name: "",
     user_pass: "",
