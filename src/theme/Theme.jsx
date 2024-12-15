@@ -9,7 +9,7 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 
-const custom_font_size = 0.75;
+const custom_font_size = 0.85;
 
 const ThemeConfig = ({ children }) => {
   const { mode, direction } = useSelector((state) => state.theme); // Get theme mode and direction from Redux
