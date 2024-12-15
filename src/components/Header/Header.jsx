@@ -1,7 +1,7 @@
 import "./Header.scss";
 import { Logo } from "../Logo";
 import { Box, Button } from "@mui/material";
-import { toggleMode } from "../../redux/reducers/Theme.reducer";
+import { toggleMode, toggleLang } from "../../redux/reducers/Theme.reducer";
 import { useDispatch } from "react-redux";
 
 const Header = () => {
@@ -14,6 +14,7 @@ const Header = () => {
       <Box className="header__middle">Header</Box>
       <Box className="header__end">
         <Button onClick={() => dispatch(toggleMode())}>Theme</Button>
+        <Button onClick={() => dispatch(toggleLang())}>Language</Button>
       </Box>
     </Box>
   );

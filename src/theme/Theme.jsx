@@ -4,18 +4,16 @@ import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { usePalette } from "./Palette";
 import { ToastContainer } from "react-toastify";
-// import { toggleMode } from "../redux/reducers/Theme.reducer";
 
 const custom_font_size = 0.75;
 
 const ThemeConfig = ({ children }) => {
-  const mode = useSelector((state) => state.theme.mode); // Get theme mode from Redux
-  const dispatch = useDispatch();
+  const { mode, direction } = useSelector((state) => state.theme); // Get theme mode and direction from Redux
 
   // Get palette based on the current mode
   const palette = usePalette(mode);
 
-  // Create theme based on the selected palette
+  // Create theme based on the selected palette and direction
   const theme = useMemo(
     () =>
       createTheme({
@@ -23,6 +21,7 @@ const ThemeConfig = ({ children }) => {
         typography: {
           fontSize: custom_font_size * 16,
         },
+        direction, // Add direction to the theme
         components: {
           MuiButton: {
             styleOverrides: {
@@ -42,26 +41,24 @@ const ThemeConfig = ({ children }) => {
           },
         },
       }),
-    [palette]
+    [palette, direction] // Include direction in dependency array
   );
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {children}
-      {/* <button onClick={() => dispatch(toggleMode())}>Toggle Theme</button> */}
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={1800}
         hideProgressBar={false}
         newestOnTop={true}
         closeOnClick
-        rtl={false}
+        rtl={direction === "rtl"} // Dynamically set ToastContainer RTL
         limit={5}
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        // theme="colored"
         theme={theme.palette.mode}
         transition={Zoom}
       />

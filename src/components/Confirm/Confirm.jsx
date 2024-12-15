@@ -19,6 +19,7 @@ const Confirm = ({
 
   return (
     <Dialog
+      dir={theme.direction}
       open={isOpen}
       onClose={onCancel}
       fullScreen={fullscreen || isMobile} // Enable fullscreen for mobile or when fullscreen is true
