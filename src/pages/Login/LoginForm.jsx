@@ -6,6 +6,7 @@ import { Button, TextField, InputAdornment } from "@mui/material";
 import { PersonRounded, KeySharp, VisibilitySharp, VisibilityOffSharp } from "@mui/icons-material";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useTheme } from "@emotion/react";
 // Define the Sales schema for validation
 const login_schema = Yup.object().shape({
   user_name: Yup.string().required("Username ID is required"),
@@ -13,8 +14,9 @@ const login_schema = Yup.object().shape({
 });
 
 const LoginForm = () => {
+  const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
-
+  const isEng = theme.direction === "rtl";
   const initial_values = {
     user_name: "",
     user_pass: "",
@@ -33,7 +35,7 @@ const LoginForm = () => {
             <Box className="login__form__input">
               <TextField
                 name="user_name"
-                label="Username"
+                label={isEng ? "Username" : "اسم المستخدم"}
                 type="text"
                 autoComplete="off"
                 value={values.user_name}
@@ -56,7 +58,7 @@ const LoginForm = () => {
             <Box className="login__form__input">
               <TextField
                 name="user_pass"
-                label="Password"
+                label={isEng ? "Password" : "كلمة المرور"}
                 type={showPassword ? "text" : "password"}
                 value={values.user_pass}
                 autoComplete="off"
@@ -87,7 +89,7 @@ const LoginForm = () => {
 
             <Box className="login__form__input">
               <Button type="submit" variant="contained" color="primary" fullWidth>
-                Login
+                {isEng ? "Login" : "تسجيل الدخول"}
               </Button>
             </Box>
           </Form>
