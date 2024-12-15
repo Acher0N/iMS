@@ -7,11 +7,6 @@ import { PersonRounded, KeySharp, VisibilitySharp, VisibilityOffSharp } from "@m
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useTheme } from "@emotion/react";
-// Define the Sales schema for validation
-const login_schema = Yup.object().shape({
-  user_name: Yup.string().required("Username ID is required"),
-  user_pass: Yup.string().min(8, "Password must be at least 8 characters").required("Password is required"),
-});
 
 const LoginForm = () => {
   const theme = useTheme();
@@ -21,6 +16,14 @@ const LoginForm = () => {
     user_name: "",
     user_pass: "",
   };
+
+  // Define the Sales schema for validation
+  const login_schema = Yup.object().shape({
+    user_name: Yup.string().required(isEng ? "Username ID is required" : "مطلوب معرف اسم المستخدم"),
+    user_pass: Yup.string()
+      .min(8, isEng ? "Password must be at least 8 characters" : "يجب أن تكون كلمة المرور 8 أحرف على الأقل")
+      .required(isEng ? "Password is required" : "كلمة المرور مطلوبة"),
+  });
 
   function handleSubmit(values) {
     console.log(values);
