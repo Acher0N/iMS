@@ -4,11 +4,25 @@ import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { usePalette } from "./Palette";
 import { ToastContainer } from "react-toastify";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import { prefixer } from "stylis";
+import rtlPlugin from "stylis-plugin-rtl";
 
 const custom_font_size = 0.75;
 
 const ThemeConfig = ({ children }) => {
   const { mode, direction } = useSelector((state) => state.theme); // Get theme mode and direction from Redux
+
+  // Create RTL cache
+  const cacheRtl = createCache({
+    key: direction === "rtl" ? "muirtl" : "mui",
+    stylisPlugins: direction === "rtl" ? [prefixer, rtlPlugin] : [prefixer],
+  });
+
+  function Rtl(props) {
+    return <CacheProvider value={cacheRtl}>{props.children}</CacheProvider>;
+  }
 
   // Get palette based on the current mode
   const palette = usePalette(mode);
@@ -47,9 +61,9 @@ const ThemeConfig = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {children}
+      <Rtl>{children}</Rtl>
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={1800}
         hideProgressBar={false}
         newestOnTop={true}
@@ -60,7 +74,7 @@ const ThemeConfig = ({ children }) => {
         draggable
         pauseOnHover
         theme={theme.palette.mode}
-        transition={Zoom}
+        transition={Slide}
       />
     </ThemeProvider>
   );
