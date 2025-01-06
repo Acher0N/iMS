@@ -37,10 +37,11 @@
     padding: 10px 20px 20px 20px;
     gap: 20px;
     border-radius: 15px;
-    background-color: #00000010;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(10px) saturate(50%);
     margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.1); // Ensure transparency
     overflow: hidden;
+    position: relative; // Add stacking context
 
     &__header {
       display: flex;
