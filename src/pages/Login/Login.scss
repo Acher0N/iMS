@@ -37,11 +37,13 @@
     padding: 10px 20px 20px 20px;
     gap: 20px;
     border-radius: 15px;
-    backdrop-filter: blur(10px) saturate(50%);
+    backdrop-filter: blur(10px) s;
     margin-bottom: 50px;
     background-color: rgba(0, 0, 0, 0.1); // Ensure transparency
     overflow: hidden;
     position: relative; // Add stacking context
+    background-image: radial-gradient(at 28% 10%, hsla(28deg, 0%, 20%, 0.8) 0px, /* Darker shade for the light theme */ transparent 25%),
+      radial-gradient(at 80% 0%, hsla(189deg, 100%, 30%, 0.5) 0px, /* Darker and less transparent */ transparent 50%);
 
     &__header {
       display: flex;
