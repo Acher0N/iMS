@@ -55,7 +55,7 @@ const App = () => {
       style={{
         width: "100vw",
         height: "100vh",
-        backgroundImage: backgroundImage,
+        // backgroundImage: backgroundImage,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         transition: "background 1s ease-in-out", // Smooth transition

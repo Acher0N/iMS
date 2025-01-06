@@ -1,14 +1,15 @@
 import "./Header.scss";
 import { Logo } from "../Logo";
-import { Box, Button } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import { toggleMode, toggleLang } from "../../redux/reducers/Theme.reducer";
 import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const theme = useTheme();
   const { mode, direction } = useSelector((state) => state.theme);
   return (
-    <Box className="header">
+    <Box className={`${theme.palette.mode === "dark" ? "bg_glass_dark" : "bg_glass_light"} header `}>
       <Box className="header__logo">
         <Logo />
       </Box>
