@@ -13,7 +13,7 @@ const Header = () => {
       <Box className="header__logo">
         <Logo />
       </Box>
-      <Box className="header__middle">Header</Box>
+      <Box className="header__middle"></Box>
       <Box className="header__end">
         <Button onClick={() => dispatch(toggleMode())}>{mode === "light" ? "Dark" : "Light"}</Button>
         <Button onClick={() => dispatch(toggleLang())}>{direction === "ltr" ? "العربية" : "English"}</Button>
