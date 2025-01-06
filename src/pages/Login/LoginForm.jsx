@@ -32,7 +32,7 @@ const LoginForm = () => {
   }
 
   return (
-    <Box className={`login__form `}>
+    <Box className={`login__form`}>
       <Box className="login__form__header">
         <Logo />
         <Typography variant="h6" className="login__form__title">

@@ -1,8 +1,8 @@
 import "./Login.scss";
 import { Box } from "@mui/material";
 import LoginForm from "./LoginForm";
-import user from "../../Assets/user.png";
-import stats from "../../Assets/stats.png";
+import user from "../../assets/user.png";
+import stats from "../../assets/stats.png";
 
 const Login = () => {
   return (
