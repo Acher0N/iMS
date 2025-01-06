@@ -2,3 +2,60 @@
   background-color: #00000010;
   backdrop-filter: blur(20px);
 }
+.bg_green_gradient {
+  background-image: #5fb671;
+  background-image: radial-gradient(at 80% 20%, hsla(132, 38%, 67%, 1) 0, transparent 100%),
+    radial-gradient(at 100% 20%, hsla(133, 38%, 63%, 1) 0, transparent 100%), radial-gradient(at 100% 20%, hsla(132, 35%, 60%, 1) 0, transparent 100%),
+    radial-gradient(at 0 100%, hsla(132, 36%, 56%, 1) 0, transparent 100%);
+}
+
+.bg_green_gradient {
+  background-image: #5fb671;
+  background-image: radial-gradient(at 80% 20%, hsla(132, 38%, 67%, 1) 0, transparent 100%),
+    radial-gradient(at 100% 20%, hsla(133, 38%, 63%, 1) 0, transparent 100%), radial-gradient(at 100% 20%, hsla(132, 35%, 60%, 1) 0, transparent 100%),
+    radial-gradient(at 0 100%, hsla(132, 36%, 56%, 1) 0, transparent 100%);
+}
+
+.bg_glass {
+  background-color: #0000002f;
+  backdrop-filter: blur(32px);
+}
+
+.bg_glass_dark {
+  background-color: #0000002f;
+  backdrop-filter: blur(32px);
+}
+
+.bg_glass_light {
+  background-color: #ffffff6f;
+  backdrop-filter: blur(32px);
+}
+
+.bg_darkglass {
+  background-color: #1817172f;
+  backdrop-filter: blur(40px);
+}
+
+.text_gradient {
+  color: transparent;
+  background-image: #dfff99;
+  background-image: var(--color-gradient-primary);
+  -webkit-background-clip: text;
+  text-shadow: 2px 4px 10px rgb(3 72 63 / 50%);
+}
+
+.text_gradient_sm {
+  color: transparent;
+  background-image: #fce251;
+  background-image: radial-gradient(at 23% 21%, #d9f075 0, transparent 100%), radial-gradient(at 80% 69%, hsla(25, 66%, 79%, 1) 0, transparent 100%);
+  -webkit-background-clip: text;
+  text-shadow: 2px 2px 5px rgba(78, 155, 117, 0.274);
+}
+
+.visa__gradient {
+  background-image: #fcff99;
+  background-image: radial-gradient(at 17% 59%, rgba(243, 226, 130, 0.548) 0, transparent 53%),
+    radial-gradient(at 25% 90%, hsla(20, 97%, 63%, 1) 0, transparent 58%), radial-gradient(at 26% 95%, hsla(15, 92%, 61%, 1) 0, transparent 47%),
+    radial-gradient(at 46% 90%, #fdca90 0, transparent 53%), radial-gradient(at 59% 97%, hsla(273, 86%, 67%, 1) 0, transparent 58%),
+    radial-gradient(at 73% 17%, hsla(28, 62%, 69%, 1) 0, transparent 40%), radial-gradient(at 98% 18%, hsla(12, 73%, 66%, 1) 0, transparent 46%);
+}

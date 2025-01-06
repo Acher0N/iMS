@@ -8,7 +8,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const { mode, direction } = useSelector((state) => state.theme);
   return (
-    <Box className="header bg_glass">
+    <Box className="header">
       <Box className="header__logo">
         <Logo />
       </Box>

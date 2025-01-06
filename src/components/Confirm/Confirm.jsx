@@ -54,7 +54,7 @@ const Confirm = ({
             {cancelText}
           </Button>
         )}
-        <Button onClick={onConfirm} color="success" variant="contained" size="large">
+        <Button onClick={onConfirm} color="warning.light" variant="contained" size="large">
           {confirmText}
         </Button>
       </DialogActions>

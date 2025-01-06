@@ -1,5 +1,5 @@
 // import "./Login.scss";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Button, TextField, InputAdornment } from "@mui/material";
@@ -7,6 +7,7 @@ import { PersonRounded, KeySharp, VisibilitySharp, VisibilityOffSharp } from "@m
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useTheme } from "@emotion/react";
+import { Logo } from "../../components/Logo";
 
 const LoginForm = () => {
   const theme = useTheme();
@@ -31,7 +32,13 @@ const LoginForm = () => {
   }
 
   return (
-    <Box className="login__form bg_glass">
+    <Box className="login__form ">
+      <Box className="login__form__header">
+        <Logo />
+        <Typography variant="h6" className="login__form__title">
+          {isEng ? "Enter your credentials" : "ادخل اسم المستخدم وكلمة المرور"}
+        </Typography>
+      </Box>
       <Formik initialValues={initial_values} validationSchema={login_schema} onSubmit={handleSubmit}>
         {({ values, errors, touched, handleChange }) => (
           <Form className="login__form__container">
@@ -91,7 +98,7 @@ const LoginForm = () => {
             </Box>
 
             <Box className="login__form__input">
-              <Button type="submit" variant="contained" color="primary" fullWidth>
+              <Button type="submit" variant="text" color="primary" fullWidth>
                 {isEng ? "Login" : "تسجيل الدخول"}
               </Button>
             </Box>
