@@ -49,7 +49,7 @@ const App = () => {
     .join(", ");
 
   return (
-    <Box>
+    <Box dir={theme.direction}>
       <Header />
       <Login />
     </Box>
