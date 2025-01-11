@@ -49,22 +49,9 @@ const App = () => {
     .join(", ");
 
   return (
-    <Box
-      dir={theme.direction}
-      className="app"
-      style={{
-        width: "100vw",
-        height: "100vh",
-        // backgroundImage: backgroundImage,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        transition: "background 1s ease-in-out", // Smooth transition
-      }}
-    >
-      <Header className={theme.palette.mode === "dark" ? "bg_glass_dark" : "bg_glass_light"} />
-      <Box className={`${theme.palette.mode === "dark" ? "bg_glass_dark" : "bg_glass_light"} app__content `}>
-        <Login />
-      </Box>
+    <Box>
+      <Header />
+      <Login />
     </Box>
   );
 };

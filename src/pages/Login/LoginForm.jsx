@@ -1,38 +1,54 @@
-// import "./Login.scss";
-import { Box, Typography } from "@mui/material";
+import React, { useState, useCallback } from "react";
+import { Box, Typography, Button, TextField, InputAdornment } from "@mui/material";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Button, TextField, InputAdornment } from "@mui/material";
 import { PersonRounded, KeySharp, VisibilitySharp, VisibilityOffSharp } from "@mui/icons-material";
-import { useState } from "react";
 import { toast } from "react-toastify";
 import { useTheme } from "@emotion/react";
 import { Logo } from "../../components/Logo";
+import { memo } from "react";
+import "./LoginForm.scss"; // Import the CSS file
+
+const initial_values = {
+  user_name: "",
+  user_pass: "",
+};
+
+const login_schema = Yup.object().shape({
+  user_name: Yup.string().required("Username ID is required"),
+  user_pass: Yup.string().min(8, "Password must be at least 8 characters").required("Password is required"),
+});
 
 const LoginForm = () => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const isEng = theme.direction === "ltr";
-  const initial_values = {
-    user_name: "",
-    user_pass: "",
-  };
+  const colors = theme.palette;
 
-  // Define the Sales schema for validation
-  const login_schema = Yup.object().shape({
-    user_name: Yup.string().required(isEng ? "Username ID is required" : "مطلوب معرف اسم المستخدم"),
-    user_pass: Yup.string()
-      .min(8, isEng ? "Password must be at least 8 characters" : "يجب أن تكون كلمة المرور 8 أحرف على الأقل")
-      .required(isEng ? "Password is required" : "كلمة المرور مطلوبة"),
-  });
-
-  function handleSubmit(values) {
+  const handleSubmit = useCallback((values) => {
     console.log(values);
     toast.info("Login successful!");
-  }
+  }, []);
+
+  console.log(theme);
 
   return (
-    <Box className={`login__form`}>
+    <Box
+      className={`login__form`}
+      sx={{
+        borderRadius: 1,
+        p: 2,
+        // bgcolor: colors.background.paper,
+        backdropFilter: "blur(40px) ",
+        backgroundColor: "transparent",
+        position: "absolute",
+        overflow: "hidden",
+        borderRadius: "15px",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -10%)",
+      }}
+    >
       <Box className="login__form__header">
         <Logo />
         <Typography variant="h6" className="login__form__title">
@@ -109,4 +125,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default memo(LoginForm);

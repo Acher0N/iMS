@@ -9,7 +9,7 @@ const Header = () => {
   const theme = useTheme();
   const { mode, direction } = useSelector((state) => state.theme);
   return (
-    <Box className={`${theme.palette.mode === "dark" ? "bg_glass_dark" : "bg_glass_light"} header `}>
+    <Box className={`${theme.palette.mode === "dark" ? "bg_glass" : "bg_glass_light"} header `}>
       <Box className="header__logo">
         <Logo />
       </Box>
