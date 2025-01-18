@@ -1,5 +1,7 @@
-import React from "react";
-
+import { useEffect } from "react";
+import FatooraQR from "../../Modules/FatooraKSA";
+import { BRAND_NAME, BRAND_VAT_NO } from "../../Config";
+import { round } from "lodash";
 const InvoiceA4 = ({ shop = {}, cart = {}, qr }) => {
   const { products, order_total, estimated_VAT, subtotal, discounts } = cart;
 
@@ -11,6 +13,20 @@ const InvoiceA4 = ({ shop = {}, cart = {}, qr }) => {
     vatAmount: estimated_VAT?.toFixed(2),
   };
 
+  useEffect(() => {
+    (async () => {
+      document.getElementById("qrImgbig").setAttribute(
+        "src",
+        await FatooraQR({
+          seller: BRAND_NAME,
+          vatRegNumber: BRAND_VAT_NO,
+          timeStamp: new Date().toISOString(),
+          totalAmount: round(order_total, 2).toFixed(2),
+          vatAmount: round(estimated_VAT, 2).toFixed(2),
+        })
+      );
+    })();
+  }, [cart]);
   const styles = {
     container: {
       padding: "20px",
@@ -118,7 +134,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, qr }) => {
         <div>Time: 12:00 PM</div>
       </div>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <img src={qr} width="130px" height="130px" alt="QR Code" />
+        <img src={qr} id="qrImgbig" width="130px" height="130px" alt="QR Code" />
       </div>
     </div>
   );
