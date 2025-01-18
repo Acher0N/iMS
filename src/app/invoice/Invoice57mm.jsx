@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { round } from "lodash";
-import FatooraQR from "../../modules/Fatoora_KSA/Fatoora.KSA_2";
+import FatooraQR from "../../Modules/FatooraKSA";
 import { BRAND_NAME, BRAND_VAT_NO } from "../../Config";
 
 const Invoice57mm = ({ invoiceData, reference, orderNo = 1 }) => {
@@ -33,7 +33,7 @@ const Invoice57mm = ({ invoiceData, reference, orderNo = 1 }) => {
       <Typography variant="p" sx={{ fontFamily: "monospace" }}>
         Simplified Tax Invoice
       </Typography>
-      <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", fontSize: "13px" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", fontSize: "13px", flexDirection: "column" }}>
         <HeaderItem name="TAX No - (رقم الضريبي)" value={BRAND_VAT_NO} />
         <HeaderItem name="Date - (تاريخ)" value={date} />
         <HeaderItem name="Time - (وقت)" value={time} />
@@ -73,9 +73,7 @@ const Invoice57mm = ({ invoiceData, reference, orderNo = 1 }) => {
           Total <br /> المجموع
         </Typography>
       </Box>
-      {invoiceData.products.map((item) => (
-        <Item item={item} key={item.id} />
-      ))}
+      {invoiceData && invoiceData?.products.map((item) => <Item item={item} key={item.id} />)}
     </Box>
   );
 
@@ -152,12 +150,16 @@ const Invoice57mm = ({ invoiceData, reference, orderNo = 1 }) => {
         background: "#fff",
         padding: "3px",
         display: "flex",
+        textAlign: "center",
+        color: "#000",
         py: "30px",
         flexDirection: "column",
         alignItems: "center",
+        position: "relative",
+
         "& *": {
           fontFamily: "monospace !important",
-          fontSize: "11px",
+          fontSize: "10px",
           fontWeight: "100",
         },
       }}

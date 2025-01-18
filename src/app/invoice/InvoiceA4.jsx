@@ -1,6 +1,6 @@
 import React from "react";
 
-const A4 = ({ shop = {}, cart = {}, qr }) => {
+const InvoiceA4 = ({ shop = {}, cart = {}, qr }) => {
   const { products, order_total, estimated_VAT, subtotal, discounts } = cart;
 
   const sampleData = {
@@ -24,6 +24,7 @@ const A4 = ({ shop = {}, cart = {}, qr }) => {
       fontSize: "14px",
       fontWeight: "100",
       background: "#fff",
+      color: "#000",
       fontFamily: "sans-serif",
     },
     header: {
@@ -208,4 +209,4 @@ const A4 = ({ shop = {}, cart = {}, qr }) => {
   );
 };
 
-export default A4;
+export default InvoiceA4;

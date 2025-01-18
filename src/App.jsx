@@ -6,6 +6,8 @@ import { useTheme } from "@mui/material";
 import { Login } from "./pages/Login";
 import JsonFileUploader from "./Modules/JSON_Upload";
 import SvgToBase64 from "./Modules/SVG2B64";
+import Invoice57mm from "./app/invoice/Invoice57mm";
+import InvoiceA4 from "./app/invoice/InvoiceA4";
 
 const App = () => {
   const theme = useTheme();
@@ -21,10 +23,14 @@ const App = () => {
       <Header />
       {/* <Titlebar /> */}
       <Button onClick={() => handleDelete()}>Delete Item</Button>
+      <Login />
       <Confirm isOpen={isConfirmOpen} onClose={() => setConfirmOpen(false)} onConfirm={handleDelete} />
       <JsonFileUploader />
+      <br />
+      <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+        <Invoice57mm invoiceData={{ order_total: 200, subtotal: 170, discounts: 0, estimated_VAT: 30, products: [] }} />
+      </Box>
       <SvgToBase64 />
-      <Login />
     </Box>
   );
 };
