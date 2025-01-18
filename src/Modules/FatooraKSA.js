@@ -29,6 +29,20 @@ const generateTLV = (data) => {
     .join("");
 };
 
+function getB64TLV({ seller, vatRegNumber, timeStamp, totalAmount, vatAmount }) {
+  const TLV_B64_STRING = tlvToBase64(
+    generateTLV({
+      seller,
+      vatRegNumber,
+      timeStamp,
+      totalAmount,
+      vatAmount,
+    })
+  );
+
+  return TLV_B64_STRING;
+}
+
 // QR Code generator function
 export default async function FatooraQR({ seller, vatRegNumber, timeStamp, totalAmount, vatAmount }) {
   try {
@@ -49,3 +63,5 @@ export default async function FatooraQR({ seller, vatRegNumber, timeStamp, total
     throw new Error("QR code generation failed.");
   }
 }
+
+export { generateTLV, tlvToBase64, getB64TLV };

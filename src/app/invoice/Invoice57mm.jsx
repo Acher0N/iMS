@@ -3,32 +3,35 @@ import { useEffect } from "react";
 import { round } from "lodash";
 import FatooraQR from "../../Modules/FatooraKSA";
 import { BRAND_NAME, BRAND_VAT_NO } from "../../Config";
+import QR from "qrcode";
 
-const Invoice57mm = ({ invoiceData, reference, orderNo = 1 }) => {
+const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }) => {
+  const { products, order_total, estimated_VAT, subtotal, discounts } = cart;
   const date = `${String(new Date().getDate()).padStart(2, "0")}/${String(new Date().getMonth() + 1).padStart(2, "0")}/${new Date().getFullYear()}`;
   const time = `${new Date().getHours()}:${String(new Date().getMinutes()).padStart(2, "0")}`;
 
+  console.log(QR_STRING);
+
+  const sampleData = {
+    name: shop?.name?.en,
+    vatNo: shop?.VATNo,
+    time: new Date().toISOString(),
+    totalAmount: order_total?.toFixed(2),
+    vatAmount: estimated_VAT?.toFixed(2),
+  };
+
   useEffect(() => {
     (async () => {
-      document.getElementById("qrImg").setAttribute(
-        "src",
-        await FatooraQR({
-          seller: BRAND_NAME,
-          vatRegNumber: BRAND_VAT_NO,
-          timeStamp: new Date().toISOString(),
-          totalAmount: round(invoiceData.order_total, 2).toFixed(2),
-          vatAmount: round(invoiceData.estimated_VAT, 2).toFixed(2),
-        })
-      );
+      document.getElementById("qrImg").setAttribute("src", await QR.toDataURL(QR_STRING));
     })();
-  }, [invoiceData]);
+  }, [cart]);
 
   // Child Components
 
   const Header = () => (
     <Box>
       <Typography variant="h3" textTransform="uppercase" sx={{ fontWeight: "900", fontSize: "18px" }}>
-        {BRAND_NAME}
+        {shop?.name?.en}
       </Typography>
       <Typography variant="p" sx={{ fontFamily: "monospace" }}>
         Simplified Tax Invoice
@@ -73,7 +76,7 @@ const Invoice57mm = ({ invoiceData, reference, orderNo = 1 }) => {
           Total <br /> المجموع
         </Typography>
       </Box>
-      {invoiceData && invoiceData?.products.map((item) => <Item item={item} key={item.id} />)}
+      {/* {cart && cart?.products.map((item) => <Item item={item} key={item.id} />)} */}
     </Box>
   );
 
@@ -81,10 +84,10 @@ const Invoice57mm = ({ invoiceData, reference, orderNo = 1 }) => {
     <Box sx={{ width: "100%" }}>
       <Box sx={{ display: "flex", width: "100%", justifyContent: "space-between", alignItems: "flex-end" }}>
         <Box sx={{ width: "100%" }}>
-          <FooterItem name="Total before VAT" value={round(invoiceData.subtotal, 2).toFixed(2)} />
-          <FooterItem name="Estimated VAT" value={round(invoiceData.estimated_VAT, 2).toFixed(2)} />
-          <FooterItem name="Discount" value={round(invoiceData.discounts, 2).toFixed(2)} />
-          <FooterItem name="Total With TAX" value={round(invoiceData.order_total, 2).toFixed(2)} isTotal />
+          <FooterItem name="Total before VAT" value={round(cart.subtotal, 2).toFixed(2)} />
+          <FooterItem name="Estimated VAT" value={round(cart.estimated_VAT, 2).toFixed(2)} />
+          <FooterItem name="Discount" value={round(cart.discounts, 2).toFixed(2)} />
+          <FooterItem name="Total With TAX" value={round(cart.order_total, 2).toFixed(2)} isTotal />
         </Box>
       </Box>
     </Box>
