@@ -14,7 +14,7 @@ import { Invoice } from "./app/invoice";
 const App = () => {
   const theme = useTheme();
   const [isConfirmOpen, setConfirmOpen] = useState(false);
-  const [invoice_paper, setInvoicePaper] = useState("A4");
+  const [invoice_paper, setInvoicePaper] = useState("token");
 
   const handleDelete = () => {
     setConfirmOpen(false);
@@ -41,17 +41,17 @@ const App = () => {
       <br />
       <Box display={"flex"} flexDirection={"column"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
         <Box display={"flex"} gap={"10px"}>
-          <Button variant={invoice_paper === "A4" ? "contained" : "text"} onClick={() => setInvoicePaper("A4")}>
+          <Typography variant="h4" component="h4">
+            Printable Invoice Preview
+          </Typography>
+          <Button size="small" variant={invoice_paper === "A4" ? "contained" : "text"} onClick={() => setInvoicePaper("A4")}>
             A4
           </Button>
-          <Button variant={invoice_paper === "token" ? "contained" : "text"} onClick={() => setInvoicePaper("token")}>
+          <Button size="small" variant={invoice_paper === "token" ? "contained" : "text"} onClick={() => setInvoicePaper("token")}>
             Token
           </Button>
         </Box>
         <Invoice shop={shop} cart={{}} paper={invoice_paper} />
-        <Typography variant="h4" component="h1" gutterBottom>
-          Invoice Preview
-        </Typography>
       </Box>
       <SvgToBase64 />
     </Box>
