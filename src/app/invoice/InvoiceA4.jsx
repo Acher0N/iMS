@@ -21,6 +21,10 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
       document.getElementById("qrImgbig").setAttribute("src", await QR.toDataURL(QR_STRING));
     })();
   }, [cart]);
+
+  /*--------------------------------------------------------------------------------
+  Invoice Styles
+---------------------------------------------------------------------------------*/
   const styles = {
     container: {
       padding: "20px",
@@ -81,7 +85,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
   };
 
   /*--------------------------------------------------------------------------------
-    Invoice Header
+  Invoice Header
 ---------------------------------------------------------------------------------*/
   const InvoiceHeader = () => (
     <div style={styles.header}>
@@ -110,7 +114,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
   );
 
   /*--------------------------------------------------------------------------------
-    Invoice Header 2nd
+  Invoice Header 2nd
 ---------------------------------------------------------------------------------*/
   const InvoiceHeader2nd = () => (
     <div style={styles.secondaryHeader}>
@@ -134,7 +138,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
   );
 
   /*--------------------------------------------------------------------------------
-    Invoice Items
+  Invoice Items
 ---------------------------------------------------------------------------------*/
   const InvoiceItems = () => (
     <div>
@@ -166,7 +170,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
   );
 
   /*--------------------------------------------------------------------------------
-    Invoice Footer
+  Invoice Footer
 ---------------------------------------------------------------------------------*/
   const InvoiceFooter = () => (
     <div style={styles.footerStyle}>
@@ -182,12 +186,12 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
   );
 
   /*--------------------------------------------------------------------------------
-    Signature Pad Component
+  Signature Pad Component
 ---------------------------------------------------------------------------------*/
   const SignaturePad = ({ label }) => <div style={styles.signaturePad}>{label}</div>;
 
   /*--------------------------------------------------------------------------------
-    Invoice Policy
+  Invoice Policy
 ---------------------------------------------------------------------------------*/
   const InvoicePolicy = () => (
     <div

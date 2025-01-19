@@ -10,6 +10,8 @@ import Invoice57mm from "./app/invoice/Invoice57mm";
 import InvoiceA4 from "./app/invoice/InvoiceA4";
 import { LOGO } from "./Assets";
 import { Invoice } from "./app/invoice";
+import Product from "./app/Products/Product";
+import Customer from "./app/customers/Customer";
 
 const App = () => {
   const theme = useTheme();
@@ -54,6 +56,11 @@ const App = () => {
         <Invoice shop={shop} cart={{}} paper={invoice_paper} />
       </Box>
       <SvgToBase64 />
+
+      <br />
+      <Product />
+      <br />
+      <Customer />
     </Box>
   );
 };
