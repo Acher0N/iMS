@@ -5,7 +5,7 @@ import FatooraQR from "../../Modules/FatooraKSA";
 import { BRAND_NAME, BRAND_VAT_NO } from "../../Config";
 import QR from "qrcode";
 
-const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }) => {
+const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, cart = {}, QR_STRING }) => {
   const { products, order_total, estimated_VAT, subtotal, discounts } = cart;
   const date = `${String(new Date().getDate()).padStart(2, "0")}/${String(new Date().getMonth() + 1).padStart(2, "0")}/${new Date().getFullYear()}`;
   const time = `${new Date().getHours()}:${String(new Date().getMinutes()).padStart(2, "0")}`;
@@ -34,7 +34,9 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
       display: "flex",
       textAlign: "center",
       color: "#000",
-      py: "30px",
+      height: "max-content",
+      py: "15px",
+      gap: "20px",
       flexDirection: "column",
       alignItems: "center",
       position: "relative",
@@ -47,13 +49,13 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
     },
 
     header: {
-      height: "200px",
+      height: "240px",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       gap: "5px",
     },
-    header_title: { fontWeight: "900", fontSize: "18px" },
+    header_title: { fontWeight: "900", fontSize: "18px !important" },
     header_subtitle: { fontFamily: "monospace" },
     header_items: {
       display: "flex",
@@ -64,11 +66,12 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
     },
     header_item: {
       display: "grid",
-      gridTemplateColumns: "50px 10px 1fr 10px 50px ",
+      gridTemplateColumns: "50px 5px 1fr 5px 50px ",
       justifyContent: "space-between",
       alignItems: "center",
       width: "100%",
       fontSize: "12px",
+      borderBottom: "1px dashed #00000015",
     },
 
     products: {
@@ -88,7 +91,7 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
     thankYouNote: {
       width: "150px",
       height: "150px",
-      mb: "10px",
+      mb: "30px",
     },
   };
 
@@ -97,6 +100,9 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
 ---------------------------------------------------------------------------------*/
   const Header = () => (
     <Box sx={styles.header}>
+      <Box>
+        <img src={shop.logo} alt="logo" style={{ width: "40px", height: "40px", objectFit: "contain" }} />
+      </Box>
       <Typography variant="h1" textTransform="uppercase" sx={styles.header_title}>
         {shop?.name?.en}
       </Typography>
@@ -110,8 +116,9 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
         <HeaderItem data={`TAX No- ${shop?.VATNo} - رقم الضريبي`} />
         <HeaderItem data={`Date - ${date} - تاريخ`} />
         <HeaderItem data={`Time - ${time} -  وقت`} />
+        <HeaderItem data={`Order ID - ${orderID} -  معرّف الطلب `} />
         <HeaderItem data={`Order No - ${orderNo} -  رقم الطلب `} />
-        <HeaderItem data={`Employee - ${"Owner"} -  موظف `} />
+        <HeaderItem data={`Employee - ${"Karem Ahmed"} -  موظف `} />
       </Box>
       <Line />
     </Box>
@@ -158,6 +165,7 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
         </Typography>
       </Box>
       {/* {cart && cart?.products.map((item) => <Item item={item} key={item.id} />)} */}
+      <Line />
     </Box>
   );
 
@@ -187,7 +195,7 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
 
   const ThankYouNote = () => (
     <Box sx={styles.thankYouNote}>
-      <img src="" id="qrImg" alt="QR Code" width="100%" height="100%" style={{ objectFit: "contain" }} />
+      <img src="" id="qrImg" alt="QR Code" width="130px" height="130px" style={{ objectFit: "contain" }} />
       <Typography
         variant="h6"
         sx={{
@@ -218,7 +226,7 @@ const Invoice57mm = ({ reference, orderNo = 1, shop = {}, cart = {}, QR_STRING }
     </Box>
   );
 
-  const Line = () => <hr style={{ width: "100%", borderTop: "1px dashed #000" }} />;
+  const Line = () => <hr style={{ width: "100%", borderTop: "1px dashed #000", margin: "10px 0" }} />;
 
   /*--------------------------------------------------------------------------------
   Main Component Rendering

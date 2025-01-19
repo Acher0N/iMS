@@ -59,3 +59,9 @@
     radial-gradient(at 46% 90%, #fdca90 0, transparent 53%), radial-gradient(at 59% 97%, hsla(273, 86%, 67%, 1) 0, transparent 58%),
     radial-gradient(at 73% 17%, hsla(28, 62%, 69%, 1) 0, transparent 40%), radial-gradient(at 98% 18%, hsla(12, 73%, 66%, 1) 0, transparent 46%);
 }
+
+.bg_2 {
+  background: #ff9966; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff5e62, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
