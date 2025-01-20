@@ -58,7 +58,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
     secondaryHeader: {
       display: "grid",
       margin: "0 20px",
-      gridTemplateColumns: "4fr 4fr 2fr",
+      gridTemplateColumns: "5fr 5fr 2fr",
       paddingBottom: "20px",
       borderBottom: "1px solid #ccc",
     },
@@ -99,7 +99,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
       textAlign: "center",
       background: "#cccccc40",
       borderRadius: "3px",
-      padding: "10px 10px",
+      padding: "10px 25px",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
@@ -155,7 +155,7 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
     </div>
   );
 
-  const TextSpliterV2 = ({ data, sx }) => (
+  const TextSpliterV2 = ({ data, sx, sx0, sx1, sx2 }) => (
     <div
       style={{
         display: "grid",
@@ -169,10 +169,10 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
       }}
     >
       <div style={{ display: "flex", gap: "10px", justifyContent: "space-between", flexWrap: "wrap" }}>
-        <div style={{ textAlign: "left" }}>{data.split("-")[0]}</div>
-        <div style={{ textAlign: "right" }}>{data.split("-")[1]}</div>
+        <div style={{ textAlign: "left", ...sx0 }}>{data.split("-")[0]}</div>
+        <div style={{ textAlign: "right", ...sx1 }}>{data.split("-")[1]}</div>
       </div>
-      :<div style={{ textAlign: "left" }}>{data.split("-")[2]}</div>
+      :<div style={{ textAlign: "left", ...sx2 }}>{data.split("-")[2]}</div>
     </div>
   );
 
@@ -181,19 +181,20 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
 ---------------------------------------------------------------------------------*/
   const InvoiceHeader2nd = () => (
     <div style={styles.secondaryHeader}>
-      <div style={{ borderRight: "1px solid #cccccc50", padding: "0 20px 0 0" }}>
+      <div style={{ padding: "0 20px 0 0" }}>
         <TextSpliterV2 data={`seller - (البائع) - Mahamud`} />
         <TextSpliterV2 data={`Date - (التاريخ) - ${date}`} />
         <TextSpliterV2 data={`Invoice ID - (رقم الفاتورة) - F123ABC`} />
         <TextSpliterV2 data={`Time - (الوقت) - ${time}`} />
         <TextSpliterV2 data={`Counter - (العداد) - 1`} />
       </div>
-      <div style={{ borderRight: "1px solid #cccccc50", padding: "0 20px" }}>
+      <div style={{ padding: "0 20px 0 0" }}>
         <TextSpliterV2 data={`Customer - (العميل) - Kareem Ahmed`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
         <TextSpliterV2 data={`Phone - (الهاتف) - ${shop.phone}`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
         <TextSpliterV2 data={`VAT No - (رقم الضريبي) - 23143578390264`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
+        <TextSpliterV2 data={`Company - (الشركة) - ${"MaxSteel"}`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
       </div>
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <div style={{ display: "flex", justifyContent: "center", border: "1px solid #ccc", padding: "0px", borderRadius: "5px", overflow: "hidden" }}>
         <img id="qrImgbig" width="130px" height="130px" alt="QR Code" />
       </div>
     </div>
@@ -247,16 +248,23 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
       >
         <TextSpliterV2
           data={`Total Amount - (المبلغ الإجمالي) - ${round(subtotal, 2)?.toFixed(2)}`}
-          sx={{ gridTemplateColumns: "180px 5px  1fr " }}
+          sx={{ gridTemplateColumns: "180px 5px  1fr" }}
+          sx2={{ textAlign: "right" }}
         />
         <TextSpliterV2
           data={`VAT Amount - (مبلغ الضريبة) - ${round(estimated_VAT, 2)?.toFixed(2)}`}
-          sx={{ gridTemplateColumns: "180px 5px  1fr " }}
+          sx={{ gridTemplateColumns: "180px 5px  1fr" }}
+          sx2={{ textAlign: "right" }}
         />
-        <TextSpliterV2 data={`Discounts - (الخصومات) - ${round(discounts, 2)?.toFixed(2)}`} sx={{ gridTemplateColumns: "180px 5px  1fr " }} />
+        <TextSpliterV2
+          data={`Discounts - (الخصومات) - ${round(discounts, 2)?.toFixed(2)}`}
+          sx={{ gridTemplateColumns: "180px 5px  1fr" }}
+          sx2={{ textAlign: "right" }}
+        />
         <TextSpliterV2
           data={`Grand Total - (المجموع الكلي) - ${round(order_total, 2)?.toFixed(2)}`}
-          sx={{ gridTemplateColumns: "180px 5px  1fr " }}
+          sx={{ gridTemplateColumns: "180px 5px  1fr" }}
+          sx2={{ textAlign: "right" }}
         />
       </div>
     </div>

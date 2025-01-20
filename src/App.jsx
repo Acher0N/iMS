@@ -43,16 +43,18 @@ const App = () => {
       <JsonFileUploader />
       <br />
       <Box display={"flex"} flexDirection={"column"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
-        <Box display={"flex"} gap={"10px"}>
-          <Typography variant="h4" component="h4">
+        <Box display={"flex"} flexWrap={"wrap"} gap={"10px"} p={"20px"}>
+          <Typography variant="h5" component="h5">
             Printable Invoice Preview
           </Typography>
-          <Button size="small" variant={invoice_paper === "A4" ? "contained" : "text"} onClick={() => setInvoicePaper("A4")}>
-            A4
-          </Button>
-          <Button size="small" variant={invoice_paper === "token" ? "contained" : "text"} onClick={() => setInvoicePaper("token")}>
-            Token
-          </Button>
+          <Box sx={{ display: "flex", gap: "10px" }}>
+            <Button size="small" variant={invoice_paper === "token" ? "contained" : "text"} onClick={() => setInvoicePaper("token")}>
+              Token
+            </Button>
+            <Button size="small" variant={invoice_paper === "A4" ? "contained" : "text"} onClick={() => setInvoicePaper("A4")}>
+              A4
+            </Button>
+          </Box>
         </Box>
         <Invoice shop={shop} cart={{}} paper={invoice_paper} />
       </Box>
