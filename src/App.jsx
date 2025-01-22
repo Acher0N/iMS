@@ -13,6 +13,7 @@ import { Invoice } from "./app/invoice";
 import Product from "./app/Products/Product";
 import Customer from "./app/customers/Customer";
 import B642SVG from "./Modules/B642SVG";
+import QRCodeGenerator from "./Modules/B642SVG";
 
 const App = () => {
   const theme = useTheme();
@@ -60,7 +61,7 @@ const App = () => {
       </Box>
       <SvgToBase64 />
 
-      <B642SVG />
+      <QRCodeGenerator />
       <br />
       <Product />
       <br />

@@ -62,6 +62,18 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
       paddingBottom: "20px",
       borderBottom: "1px solid #ccc",
     },
+
+    QR: {
+      display: "flex",
+      width: "130px",
+      height: "130px",
+      justifyContent: "center",
+      border: "1px solid #ccc",
+      padding: "0px",
+      borderRadius: "5px",
+      overflow: "hidden",
+    },
+
     itemsHeader: {
       display: "grid",
       gridTemplateColumns: "50px 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
@@ -92,9 +104,9 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
       alignItems: "flex-end",
       // background: "#ddd",
       background: "#cccccc40",
-
       borderRadius: "5px",
     },
+
     policy: {
       textAlign: "center",
       background: "#cccccc40",
@@ -190,11 +202,11 @@ const InvoiceA4 = ({ shop = {}, cart = {}, QR_STRING }) => {
       </div>
       <div style={{ padding: "0 20px 0 0" }}>
         <TextSpliterV2 data={`Customer - (العميل) - Kareem Ahmed`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
+        <TextSpliterV2 data={`Company - (الشركة) - ${"MaxSteel"}`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
         <TextSpliterV2 data={`Phone - (الهاتف) - ${shop.phone}`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
         <TextSpliterV2 data={`VAT No - (رقم الضريبي) - 23143578390264`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
-        <TextSpliterV2 data={`Company - (الشركة) - ${"MaxSteel"}`} sx={{ gridTemplateColumns: "130px 5px  1fr " }} />
       </div>
-      <div style={{ display: "flex", justifyContent: "center", border: "1px solid #ccc", padding: "0px", borderRadius: "5px", overflow: "hidden" }}>
+      <div style={{ ...styles.QR }}>
         <img id="qrImgbig" width="130px" height="130px" alt="QR Code" />
       </div>
     </div>

@@ -49,7 +49,6 @@ const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, c
     },
 
     header: {
-      height: "240px",
       width: "100%",
       display: "flex",
       flexDirection: "column",
@@ -89,9 +88,7 @@ const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, c
     },
 
     thankYouNote: {
-      width: "150px",
-      height: "150px",
-      mb: "30px",
+      width: "100%",
     },
   };
 
@@ -170,7 +167,14 @@ const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, c
   );
 
   const Item = ({ item }) => (
-    <Box sx={{ display: "grid", gridTemplateColumns: "15px 1fr 1fr 1fr 1fr 1fr", fontSize: "13px", gap: "10px" }}>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "15px 1fr 1fr 1fr 1fr 1fr",
+        fontSize: "13px",
+        gap: "10px",
+      }}
+    >
       <Typography>{item.id}</Typography>
       <Typography>{item.productName}</Typography>
       <Typography>{item.qty}</Typography>
@@ -195,7 +199,16 @@ const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, c
 
   const ThankYouNote = () => (
     <Box sx={styles.thankYouNote}>
-      <img src="" id="qrImg" alt="QR Code" width="130px" height="130px" style={{ objectFit: "contain" }} />
+      <Line />
+      <img
+        src=""
+        id="qrImg"
+        alt="QR Code"
+        width="130px"
+        height="130px"
+        style={{ objectFit: "contain", border: "1px solid #ccc", borderRadius: "5px" }}
+      />
+      <Line />
       <Typography
         variant="h6"
         sx={{
@@ -203,7 +216,7 @@ const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, c
           fontFamily: "monospace",
           textAlign: "center",
           lineHeight: "1",
-          mb: "15px",
+          my: "15px",
         }}
       >
         Thank You For Shopping

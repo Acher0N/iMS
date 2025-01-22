@@ -1,42 +1,53 @@
 import React, { useState } from "react";
-import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import QRCode from "qrcode";
+import { Container, TextField, Button, Typography, Box, Link, Grid, Paper } from "@mui/material";
 
-const Base64ToImage = () => {
-  const [base64, setBase64] = useState("");
-  const [imageSrc, setImageSrc] = useState("");
+const QRCodeGenerator = () => {
+  const [text, setText] = useState("");
+  const [qrCodeUrl, setQrCodeUrl] = useState("");
 
-  const handleConvert = () => {
-    setImageSrc(base64);
+  const generateQRCode = async () => {
+    try {
+      const url = await QRCode.toDataURL(text);
+      setQrCodeUrl(url);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 5 }}>
-      <Typography variant="h4" gutterBottom>
-        Base64 to SVG Converter
-      </Typography>
-      <TextField
-        label="Base64 String"
-        multiline
-        rows={4}
-        variant="outlined"
-        fullWidth
-        value={base64}
-        onChange={(e) => setBase64(e.target.value)}
-        sx={{ mb: 2 }}
-      />
-      <Button variant="contained" color="primary" onClick={handleConvert} fullWidth>
-        Convert
-      </Button>
-      {imageSrc && (
-        <Box mt={4} textAlign="center">
-          <Typography variant="h6" gutterBottom>
-            Converted Image:
-          </Typography>
-          <img src={`${imageSrc}`} alt="Converted" style={{ maxWidth: "100%" }} />
-        </Box>
-      )}
+    <Container maxWidth="sm" style={{ marginTop: "2rem" }}>
+      <Paper elevation={3} style={{ padding: "2rem" }}>
+        <Typography variant="h4" gutterBottom align="center">
+          Text to QR Code Generator
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField variant="outlined" fullWidth margin="normal" label="Enter text" value={text} onChange={(e) => setText(e.target.value)} />
+          </Grid>
+          <Grid item xs={12} style={{ textAlign: "center" }}>
+            <Button variant="contained" color="primary" onClick={generateQRCode} style={{ marginTop: "1rem" }}>
+              Generate QR Code
+            </Button>
+          </Grid>
+          {qrCodeUrl && (
+            <Grid item xs={12} style={{ textAlign: "center" }}>
+              <Box mt={4}>
+                <img src={qrCodeUrl} alt="Generated QR Code" style={{ maxWidth: "100%" }} />
+                <Box mt={2}>
+                  <Link href={qrCodeUrl} download="qrcode.png" underline="none">
+                    <Button variant="contained" color="secondary">
+                      Download QR Code
+                    </Button>
+                  </Link>
+                </Box>
+              </Box>
+            </Grid>
+          )}
+        </Grid>
+      </Paper>
     </Container>
   );
 };
 
-export default Base64ToImage;
+export default QRCodeGenerator;
