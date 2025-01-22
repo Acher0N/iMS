@@ -199,7 +199,6 @@ const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, c
 
   const ThankYouNote = () => (
     <Box sx={styles.thankYouNote}>
-      <Line />
       <img
         src=""
         id="qrImg"
@@ -208,7 +207,6 @@ const Invoice57mm = ({ reference, orderNo = 1, orderID = "F123ABC", shop = {}, c
         height="130px"
         style={{ objectFit: "contain", border: "1px solid #ccc", borderRadius: "5px" }}
       />
-      <Line />
       <Typography
         variant="h6"
         sx={{
