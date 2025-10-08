@@ -1,0 +1,127 @@
+{
+  "invoiceNumber": "INV-0002",
+  "items": [
+    {
+      "id": "cfd784e8-24f9-41a3-b7c0-5247dd6e60aa",
+      "name": {
+        "en": "Samsung Evo 970 SSD",
+        "ar": "Samsung Evo 970 SSD"
+      },
+      "price": 450,
+      "cost": 340,
+      "profit": "OTUuNjU=",
+      "vatRate": 15,
+      "taxCategory": "S",
+      "taxExemptionReason": "",
+      "unitType": "EA",
+      "unitName": "Each",
+      "unitCode": "EA",
+      "barcode": "",
+      "brand": "Samsung",
+      "originCountry": "SA",
+      "productCode": "",
+      "lineItemNature": "Goods",
+      "description": "1TB SSD,\nReed Speed 7000MB/s\nWrite Speed 7000MB/s",
+      "category": "SSD",
+      "discount": 0,
+      "discountReason": "",
+      "quantity": 1,
+      "customNote": "",
+      "createdAt": "2025-10-08T04:39:19.164Z",
+      "priceObj": {
+        "cost": 340,
+        "sell": 450,
+        "wholesale": 400
+      },
+      "unitPriceExcludedVAT": 391.3,
+      "VATPerUnit": 58.7,
+      "total_price": 391.3,
+      "total_VAT": 58.7,
+      "totalPriceWithVat": 450,
+      "taxableAmount": 391.3,
+      "netAmount": 450,
+      "_originalPrice": 450,
+      "returnedQuantity": 0
+    },
+    {
+      "id": "878fd4de-0366-4159-a8a5-518098979e49",
+      "name": {
+        "en": "Almarai Milk",
+        "ar": "Almarai Milk"
+      },
+      "price": 220,
+      "cost": 120,
+      "profit": "ODYuOTU=",
+      "vatRate": 15,
+      "taxCategory": "S",
+      "taxExemptionReason": "",
+      "unitType": "EA",
+      "unitName": "Each",
+      "unitCode": "EA",
+      "barcode": "",
+      "brand": "Almarai",
+      "originCountry": "SA",
+      "productCode": "",
+      "lineItemNature": "Goods",
+      "description": "1L Cow Milk",
+      "category": "Milk",
+      "discount": 0,
+      "discountReason": "",
+      "quantity": 1,
+      "customNote": "",
+      "createdAt": "2025-10-08T04:39:19.860Z",
+      "priceObj": {
+        "cost": 120,
+        "sell": 220,
+        "wholesale": 200
+      },
+      "unitPriceExcludedVAT": 191.3,
+      "VATPerUnit": 28.7,
+      "total_price": 191.3,
+      "total_VAT": 28.7,
+      "totalPriceWithVat": 220,
+      "taxableAmount": 191.3,
+      "netAmount": 220,
+      "_originalPrice": 220,
+      "returnedQuantity": 0
+    }
+  ],
+  "totalVAT": 87.4,
+  "discount": {
+    "amount": 0,
+    "reason": ""
+  },
+  "totalAmountWithVAT": 670,
+  "roundingAmount": 0,
+  "paymentMethod": "Cash",
+  "credit": 670,
+  "debit": 0,
+  "totalAmountWithoutVAT": 582.6,
+  "invoiceType": "B2C",
+  "buyer": null,
+  "invoiceIssueDateTime": "2025-10-08T04:39:21.306Z",
+  "supplyDate": "2025-10-08T04:39:21.306Z",
+  "uuid": "37da05ff-572f-45cc-bca9-de547b7c037b",
+  "seller": {
+    "name": "",
+    "vatNumber": "",
+    "address": "",
+    "buildingNo": "",
+    "street": "",
+    "district": "",
+    "postalCode": "",
+    "city": "",
+    "countryCode": "SA"
+  },
+  "invoiceVersion": "2.0",
+  "currency": "SAR",
+  "qrCode": "AQACAAMYMjAyNS0xMC0wOFQwNDozOToyMS4zMDZaBAY2NzAuMDAFBTg3LjQw",
+  "isPaid": true,
+  "paymentHistory": [
+    {
+      "paymentAmount": 670,
+      "paymentDate": "2025-10-08T04:39:21.322Z",
+      "paymentMethod": "Cash"
+    }
+  ]
+}

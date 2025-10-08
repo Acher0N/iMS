@@ -1,0 +1,100 @@
+iMS : Invoice Management System
+
+this is going to be a vite React MUI redux reduxPresist Firebase dexie decimal.js day.js MUI datagrid, Formik, yup, crypto-js, date-fns, speakeasy, xlsx, qrcode, FatooraKSA offline first and firebase realtime database, and service worker based PWA,
+
+
+
+here is the previous version of this app that i developed with electron.js for desktop,
+
+but now i want to create the Webapp version and use firebase cloud for database, and use offline first approch by creating or custom offline engine in the src folder that will register all the naccessary service worker and offline ops with redux and firebase, 
+
+
+let the explain the App Architecture, 
+
+you will create the NPM create vite with react javascript,
+
+in the src folder there shoild be multiple folders
+
+1) Firebase {for comprehensive firebase configuration
+     >Config Folder for firebase init configurations files
+     >Schema Folder for Data Schemas
+     >Services Folder for dedicated Services for different data ops
+     >Utils Folder for firebase related Utility files
+     
+
+}
+2) Redux {
+    >Features folder for all the dedicated features state management {
+        >Auth
+        >App
+        >Cart
+        >Nav
+        etc (we will create all other nacessary redux feature file folders aw we go in development)
+    }
+    >middleweres folder for our custom nacessary MIddlewares
+    >Store folder for main store file
+    >utils folder for redux eleted utility files
+}
+3) OfflineEngine {we need a comprehensive offline Engine that will make our app offline capable, the OfflineEngine should be configurable via api call / function call like interface, by calling the offlineEngine Initialization file the offline Engine will be enabled otherwise the app will online capable,
+
+}
+4) hooks
+5) constants {all the constents file will be in this folder to access them easily}
+6) Theme {for comprehensive MUI Custom Theme configuration
+  >palette folder for lightmode color palette and darkmode color palette and a coustom color palette  and can be added more palettes in future
+  Theme.config.js for comprehensive robust MUI theme configuration
+  Theme.jsx that will return a ThemeProvider Wraper component to use in the main.jsx
+
+  all the theme releted state should be in the Redux Features>App>App.reducer.jsx for theme toggling lang toggling etc
+}
+7) Pages {
+    >Login folder {
+        >Signup.jsx
+        >Signin.jsx
+        >RecoverAccount.jsx
+        >VerifyAccount.jsx
+    }
+    >Settings Folder{
+        Settings.jsx
+    }
+    >POS folder
+    >Inventory
+    >Sales
+    >Buyers
+    >Purchase
+    >Suppliers
+    >Tax Reports
+    >Dev folder only accessable to the developer of the app
+}
+8) Apps { there will be multiple independent apps in our app 
+    > Cart Manager folder
+    > User Manamager
+    > Invoice Manager
+    > Buyer Manager
+    > Supplier Manager
+    > Print Manager
+    >etc  (we will create all other nacessary App file folders aw we go in development)
+}
+9) FatooraKSA { all the files folder for KSA Fatoora phase 1 and phase 2 related ZATCA utility files folders{
+    >Phase 1{
+        > Fatoora TLV String generation
+        > FatooraQr generation
+    }
+    >Phase 2{
+        > Fatoora TLV String generation
+        > FatooraQr generation
+        >FatooraHash
+        >Fatooraxml
+        >FatooraSigning
+        many more nacessary files required by ZATCA
+    }
+} }
+
+
+
+
+for industrial level performance and security and architecture and well maintainability we must keep all the codebase consistence to functional programming and 
+
+the UI shouldn't dirrectly access data manupulation operation, the UI should completly be dependent on the Redux, and redux will communicate with bothe Offline Engine and Firebase bidirrectionally  and update the redux state to be sync with the firebase and OfflineEngine
+
+now initialize our app and also create the architectutre.md  file  

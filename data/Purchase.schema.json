@@ -1,0 +1,61 @@
+{
+  "purchase": [
+    {
+      "supplier": {
+        "name": "Al Badar Co for Electronics ",
+        "vatNumber": "323333333333333",
+        "street": "King Fahad St.",
+        "buildingNo": "4454",
+        "district": "Al Anud",
+        "city": "Dammam",
+        "postalCode": "11131",
+        "additionalNo": "13",
+        "countryCode": "SA",
+        "mobile": "0538560382",
+        "email": "albadar@gmail.com",
+        "address": "4454, King Fahad St., Al Anud, Dammam, 11131, 13, SA",
+        "id": "6208b322-1889-42e8-8a5b-24b762e25d88"
+      },
+      "items": [
+        {
+          "name": "as",
+          "quantity": 1,
+          "unitCost": 10,
+          "vatRate": 0.15,
+          "isVatIncluded": "yes",
+          "id": "e08f69bd-9775-4ce2-a556-b595c2fc808e",
+          "price": 10,
+          "unitPriceExcludedVAT": 8.7,
+          "VATPerUnit": 1.3,
+          "total_price": 8.7,
+          "total_VAT": 1.3,
+          "totalPriceWithVat": 10,
+          "taxableAmount": 8.7,
+          "netAmount": 10
+        },
+        {
+          "name": "sab",
+          "quantity": 1,
+          "unitCost": 30,
+          "vatRate": 0.15,
+          "isVatIncluded": "yes",
+          "id": "492445ee-5a76-4210-9c49-4c90ec68d085",
+          "price": 30,
+          "unitPriceExcludedVAT": 26.09,
+          "VATPerUnit": 3.91,
+          "total_price": 26.09,
+          "total_VAT": 3.91,
+          "totalPriceWithVat": 30,
+          "taxableAmount": 26.09,
+          "netAmount": 30
+        }
+      ],
+      "totalPrice": 34.79,
+      "totalAmountWithVAT": 40,
+      "totalVAT": 5.21,
+      "purchaseDate": "2025-10-08T04:50:10.021Z",
+      "invoiceReference": "INV-0323",
+      "purchaseNumber": "PUR-0001"
+    }
+  ]
+}

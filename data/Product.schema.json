@@ -1,0 +1,25 @@
+{
+  "name": {
+    "en": "Almarai Milk",
+    "ar": "Almarai Milk"
+  },
+  "description": "1L Cow Milk",
+  "category": "Milk",
+  "itemClassification": "Goods",
+  "unitName": "Each",
+  "price": {
+    "cost": 120,
+    "sell": 220,
+    "wholesale": 200
+  },
+  "taxCategory": "S",
+  "vatRate": 15,
+  "taxExemptionReason": "",
+  "barcode": "",
+  "brand": "Almarai",
+  "originCountry": "SA",
+  "productCode": "",
+  "unitType": "EA",
+  "unitCode": "EA",
+  "id": "878fd4de-0366-4159-a8a5-518098979e49"
+}

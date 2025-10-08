@@ -1,0 +1,86 @@
+{
+  "items": [
+    {
+      "id": "cfd784e8-24f9-41a3-b7c0-5247dd6e60aa",
+      "name": {
+        "en": "Samsung Evo 970 SSD",
+        "ar": "Samsung Evo 970 SSD"
+      },
+      "price": 450,
+      "cost": 340,
+      "profit": "OTUuNjU=",
+      "vatRate": 15,
+      "taxCategory": "S",
+      "taxExemptionReason": "",
+      "unitType": "EA",
+      "unitName": "Each",
+      "unitCode": "EA",
+      "barcode": "",
+      "brand": "Samsung",
+      "originCountry": "SA",
+      "productCode": "",
+      "lineItemNature": "Goods",
+      "description": "1TB SSD,\nReed Speed 7000MB/s\nWrite Speed 7000MB/s",
+      "category": "SSD",
+      "discount": 0,
+      "discountReason": "",
+      "quantity": 2,
+      "customNote": "",
+      "createdAt": "2025-10-08T04:36:46.339Z",
+      "priceObj": {
+        "cost": 340,
+        "sell": 450,
+        "wholesale": 400
+      },
+      "unitPriceExcludedVAT": 391.3,
+      "VATPerUnit": 58.7,
+      "total_price": 782.6,
+      "total_VAT": 117.39,
+      "totalPriceWithVat": 900,
+      "taxableAmount": 782.6,
+      "netAmount": 900,
+      "_originalPrice": 450
+    },
+    {
+      "id": "878fd4de-0366-4159-a8a5-518098979e49",
+      "name": {
+        "en": "Almarai Milk",
+        "ar": "Almarai Milk"
+      },
+      "price": 220,
+      "cost": 120,
+      "profit": "ODYuOTU=",
+      "vatRate": 15,
+      "taxCategory": "S",
+      "taxExemptionReason": "",
+      "unitType": "EA",
+      "unitName": "Each",
+      "unitCode": "EA",
+      "barcode": "",
+      "brand": "Almarai",
+      "originCountry": "SA",
+      "productCode": "",
+      "lineItemNature": "Goods",
+      "description": "1L Cow Milk",
+      "category": "Milk",
+      "discount": 0,
+      "discountReason": "",
+      "quantity": 3,
+      "customNote": "",
+      "createdAt": "2025-10-08T04:36:47.064Z",
+      "priceObj": {
+        "cost": 120,
+        "sell": 220,
+        "wholesale": 200
+      },
+      "unitPriceExcludedVAT": 191.3,
+      "VATPerUnit": 28.7,
+      "total_price": 573.9,
+      "total_VAT": 86.09,
+      "totalPriceWithVat": 660,
+      "taxableAmount": 573.9,
+      "netAmount": 660,
+      "_originalPrice": 220
+    }
+  ]
+}

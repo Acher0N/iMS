@@ -1,0 +1,40 @@
+{
+  "buyers": [
+    {
+      "buyerType": "individual",
+      "name": "Muhammed Abraham",
+      "vatNumber": "",
+      "nationalId": "2524246425",
+      "street": "Abdul Aziz st",
+      "buildingNo": "1313",
+      "district": "Al Anud",
+      "city": "Dammam",
+      "postalCode": "31122",
+      "additionalNo": "45456",
+      "countryCode": "SA",
+      "mobile": "0584684562",
+      "email": "abraham@yahoo.com",
+      "address": "1313, Abdul Aziz st, Al Anud, Dammam, 31122, 45456, SA",
+      "id": "4194101f-3c96-431d-aae8-97b80206fa8e",
+      "invoices": []
+    },
+    {
+      "buyerType": "company",
+      "name": "Al Johair For Food",
+      "vatNumber": "333333333333333",
+      "nationalId": "",
+      "street": "King Abdul Aziz St.",
+      "buildingNo": "1355",
+      "district": "Al Anud",
+      "city": "Dammam",
+      "postalCode": "32211",
+      "additionalNo": "10",
+      "countryCode": "SA",
+      "mobile": "0540086528",
+      "email": "aljohairforfood@gmail.com",
+      "address": "1355, King Abdul Aziz St., Al Anud, Dammam, 32211, 10, SA",
+      "id": "c60fea64-222d-4393-9db9-bd8d9bb867a2",
+      "invoices": []
+    }
+  ]
+}
